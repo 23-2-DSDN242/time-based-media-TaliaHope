@@ -5,3 +5,5 @@
 ### THIS IS YOUR README
 
 Update this file as you go along to record your progress.
+
+I am just getting caught up
