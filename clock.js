@@ -9,46 +9,6 @@ function draw_clock() {
  noStroke()
  rect(20, 20, 920, 460, 10);
   
-  // flower 1
-  push();
-  translate(765, 250);
-  fill(253, 221, 241); // pink
-  noStroke();
-  for (let i = 0; i < 10; i ++) {
-    ellipse(0, 50, 50, 150);
-    rotate(PI/5);
-  }
-  noStroke();
-  fill(255, 178, 226); // dark pink
-  ellipse(0, 0, 60, 60);
-  pop();
-
-  // flower 2
-  push();
-  translate(480, 250);
-  fill(255, 247, 211); // yellow
-  noStroke();
-  for (let i = 0; i < 10; i ++) {
-    ellipse(0, 50, 50, 150);
-    rotate(PI/5);
-  }
-  fill(255,218,123); // orange-yellow
-  ellipse(0, 0, 60, 60);
-  pop();
-
-  // flower 3
-  push();
-  translate(200, 250);
-  fill(165,217,250); // light blue
-  noStroke();
-  for (let i = 0; i < 10; i ++) {
-    ellipse(0, 50, 50, 150);
-    rotate(PI/5);
-  }
-  fill(5, 112, 255); // dark blue
-  ellipse(0, 0, 60, 60);
-  pop();
-
   // ":"flower 1
   push();
   translate(340, 295);
@@ -1257,7 +1217,45 @@ function draw_clock() {
   fill(140, 82, 255); // dark purple
   ellipse(0, 0, 15, 15);
   pop();    
+
+
+const centerX = width /2;
+const centerY = height /2;  
+
+let hourAngle = map(obj.hours % 12, 0, 12, 0, TWO_PI) - HALF_PI;
+let minuteAngle = map(obj.minutes, 0, 60, 0, TWO_PI) - HALF_PI;
+let secondAngle = map(obj.seconds, 0, 60, 0, TWO_PI) - HALF_PI;
+
+// flower 1
+push();
+translate(centerX - 290, centerY);
+rotate(hourAngle);
+draw_flower(color(253, 221, 241), color(255, 178, 226)); // Pink petals, dark pink center
+pop();
+
+// Draw flower 2
+push();
+translate(centerX, centerY);
+rotate(minuteAngle);
+draw_flower(color(255, 247, 211), color(255, 218, 123)); // Yellow petals, orange-yellow center
+pop();
+
+// Draw flower 3
+push();
+translate(centerX + 290, centerY);
+rotate(secondAngle);
+draw_flower(color(165, 217, 250), color(5, 112, 255)); // Light blue petals, dark blue center
+pop();
 }
 
-
-
+function draw_flower(petalColor, centerColor) {
+fill(petalColor);
+noStroke();
+for (let i = 0; i < 10; i++) {
+  ellipse(0, 50, 50, 150);
+  rotate(PI / 5);
+}
+fill(centerColor);
+ellipse(0, 0, 60, 60);
+}
+ 
