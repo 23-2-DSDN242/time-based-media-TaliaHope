@@ -7,3 +7,5 @@
 Update this file as you go along to record your progress.
 
 I am just getting caught up
+
+I created the flower bush background and the main components 
