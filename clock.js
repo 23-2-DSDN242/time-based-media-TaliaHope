@@ -11,7 +11,6 @@ function draw_clock() {
   fill(175, 133, 255); // purple
  
   // flower 1
-
   push();
   noStroke();
   for (let i = 0; i < 10; i ++) {
