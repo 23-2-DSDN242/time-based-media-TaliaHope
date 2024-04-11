@@ -1,28 +1,35 @@
-/*
- * use p5.js to draw a clock on a 960x500 canvas
- */
-function draw_clock(obj) {
-  // draw your own clock here based on the values of obj:
-  //    obj.hours goes from 0-23
-  //    obj.minutes goes from 0-59
-  //    obj.seconds goes from 0-59
-  //    obj.millis goes from 0-999
-  //    obj.seconds_until_alarm is:
-  //        < 0 if no alarm is set
-  //        = 0 if the alarm is currently going off
-  //        > 0 --> the number of seconds until alarm should go off
-  background(50); //  beige
-  fill(200); // dark grey
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  text("YOUR MAIN CLOCK CODE GOES HERE", width / 2, 200);
-
-
-  fill(249, 140, 255);// pink
-  ellipse(width / 3, 350, 150);
-  fill(140, 255, 251) // blue
-  ellipse(width / 2, 350, 150);
-  fill(175, 133, 255); // purple
-  ellipse(width / 3 * 2, 350, 150);
-
+function setup() {
+  createCanvas (960, 500);
+  draw_clock();
 }
+
+function draw_clock() {
+  background(255, 218, 241); 
+  
+  translate( width/2 , height /2);
+  
+  fill(175, 133, 255); // purple
+ 
+  // flower 1
+
+  push();
+  noStroke();
+  for (let i = 0; i < 10; i ++) {
+    ellipse(0, 50, 50, 150);
+    rotate(PI/5);
+  }
+
+  // flower 2
+  push();
+  noStroke();
+  for (let i = 0; i < 10; i ++) {
+    ellipse(0, 50, 50, 150);
+    rotate(PI/5);
+  }
+ pop()
+
+ noStroke();
+ fill(255, 244, 79); // yellow
+ ellipse(0, 0, 60, 60);
+}
+
