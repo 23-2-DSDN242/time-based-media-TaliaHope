@@ -1277,7 +1277,7 @@ function draw_clock() {
      alarm_message = "Alarm: Not Set"
  }
  else if(alarm == 0) {
-     alarm_message = "Alarm: GOING OFF"
+     alarm_message = "Alarm!"
  }
  else {
      let seconds_remaining = int(alarm);
@@ -1285,7 +1285,7 @@ function draw_clock() {
  }
  text(alarm_message, 400, 42);
  function triggerAlarm() {
-  console.log("Alarm is going off!");
+
 }
 
 
