@@ -8,4 +8,14 @@ Update this file as you go along to record your progress.
 
 I am just getting caught up
 
-I created the flower bush background and the main components 
+I created the flower bush background and the main components
+
+I have added the main components of the clock which is the three main flowers that represent hr/min/sec.
+
+I think the clock looks a little boring so I have added a bunch of little flowers to be the backround to represent the "flower bush".
+
+I have completed the purple flowers as the background.
+
+After some thinking, I will try to make the purple background flowers the alarm feature by making them spin when the alarm goes off.
+
+I have uploaded part one of my sketch. 
