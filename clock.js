@@ -13,6 +13,7 @@ function draw_clock() {
  let mn = minute();
  let sc = second();
  
+ // push();
  fill(255);
  noStroke();
  textSize(220);
