@@ -8,6 +8,17 @@ function draw_clock() {
  fill(74, 203, 174);
  noStroke()
  rect(20, 20, 920, 460, 10);
+
+ let hr = hour();
+ let mn = minute();
+ let sc = second();
+ 
+ fill(255);
+ noStroke();
+ textSize(220);
+ text(hr, 90, 320)
+ text(mn, 355, 320)
+ text(sc, 640, 320)
   
   // ":"flower 1
   push();
@@ -1219,43 +1230,65 @@ function draw_clock() {
   pop();    
 
 
-const centerX = width /2;
-const centerY = height /2;  
+ const centerX = width /2;
+ const centerY = height /2;  
 
-let hourAngle = map(obj.hours % 12, 0, 12, 0, TWO_PI) - HALF_PI;
-let minuteAngle = map(obj.minutes, 0, 60, 0, TWO_PI) - HALF_PI;
-let secondAngle = map(obj.seconds, 0, 60, 0, TWO_PI) - HALF_PI;
+ let hourAngle = map(obj.hours % 12, 0, 12, 0, TWO_PI) - HALF_PI;
+ let minuteAngle = map(obj.minutes, 0, 60, 0, TWO_PI) - HALF_PI;
+ let secondAngle = map(obj.seconds, 0, 60, 0, TWO_PI) - HALF_PI;
+ let alarm = obj.seconds_until_alarm;
 
-// flower 1
-push();
-translate(centerX - 290, centerY);
-rotate(hourAngle);
-draw_flower(color(253, 221, 241), color(255, 178, 226)); // Pink petals, dark pink center
-pop();
+ // flower 1
+ push();
+ translate(centerX - 290, centerY);
+ rotate(hourAngle);
+ draw_flower(color(253, 221, 241), color(255, 178, 226)); // Pink petals, dark pink center
+ pop();
 
-// Draw flower 2
-push();
-translate(centerX, centerY);
-rotate(minuteAngle);
-draw_flower(color(255, 247, 211), color(255, 218, 123)); // Yellow petals, orange-yellow center
-pop();
+  // Draw flower 2
+ push();
+ translate(centerX, centerY);
+ rotate(minuteAngle);
+ draw_flower(color(255, 247, 211), color(255, 218, 123)); // Yellow petals, orange-yellow center
+ pop();
 
-// Draw flower 3
-push();
-translate(centerX + 290, centerY);
-rotate(secondAngle);
-draw_flower(color(165, 217, 250), color(5, 112, 255)); // Light blue petals, dark blue center
-pop();
-}
+ // Draw flower 3
+ push();
+ translate(centerX + 290, centerY);
+ rotate(secondAngle);
+ draw_flower(color(165, 217, 250), color(5, 112, 255)); // Light blue petals, dark blue center
+ pop();
+ }
 
-function draw_flower(petalColor, centerColor) {
-fill(petalColor);
-noStroke();
-for (let i = 0; i < 10; i++) {
+ 
+ function draw_flower(petalColor, centerColor) {
+ fill(petalColor);
+ noStroke();
+ for (let i = 0; i < 10; i++) {
   ellipse(0, 50, 50, 150);
   rotate(PI / 5);
+ }
+ fill(centerColor);
+ ellipse(0, 0, 60, 60);
+
+ fill(200, 100, 100)
+ let alarm_message = ""
+ if(alarm < 0) {
+     alarm_message = "Alarm: Not Set"
+ }
+ else if(alarm == 0) {
+     alarm_message = "Alarm: GOING OFF"
+ }
+ else {
+     let seconds_remaining = int(alarm);
+     alarm_message = "Alarm: will go off in " + seconds_remaining + " seconds"
+ }
+ text(alarm_message, 400, 42);
+ function triggerAlarm() {
+  console.log("Alarm is going off!");
 }
-fill(centerColor);
-ellipse(0, 0, 60, 60);
+
+
+ 
 }
  
