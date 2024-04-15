@@ -1284,34 +1284,28 @@ function draw_clock(obj) {
 
 let alarm_petal_color = color(255, 86, 86);
 let alarm_center_color = color(255, 102, 196);
-
 let alarmsetoffcolorP = color(140, 82, 255);
 let alarmsetoffcolorC = color(134, 156, 255);
 
- let alarm_colorP = centerColor;
- let alarm_colorC = petalColor;
+let alarm_colorP = centerColor;
+let alarm_colorC = petalColor;
 
- if (alarm < 0) {
-   alarm_colorP = centerColor;
-   alarm_colorC = petalColor;
+if(alarm < 0) {
+  alarm_colorP = centerColor;
+  alarm_colorC = petalColor;
+} 
 
- } else if (alarm == 0) {
-   alarm_colorP = alarm_petal_color;
-   alarm_colorC = alarm_center_color;
+  else if (alarm == 0) {
+  alarm_colorP = alarm_petal_color;
+  alarm_colorC = alarm_center_color;
+} 
+  else {
+  let seconds_remaining = int(alarm);
+    alarm_colorP = alarmsetoffcolorP;
+    alarm_colorC = alarmsetoffcolorC;
 
- } 
- 
- else {
-   let seconds_remaining = alarm;
-   if (seconds_remaining > 0) {
-     alarm_colorP = alarmsetoffcolorP;
-     alarm_colorC = alarmsetoffcolorC;
-   } else {
-     let seconds_remaining = int(alarm);
-     alarm_colorP = centerColor;
-     alarm_colorC = petalColor;
-   }
- }function draw_flower(petalColor, centerColor) {
+  }
+function draw_flower(petalColor, centerColor) {
  fill(petalColor);
  noStroke();
  for (let i = 0; i < 10; i++) {
@@ -1323,3 +1317,5 @@ let alarmsetoffcolorC = color(134, 156, 255);
 
  fill(200, 100, 100)
 }
+ 
+
