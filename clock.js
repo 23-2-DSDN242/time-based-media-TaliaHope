@@ -6,19 +6,18 @@ function setup() {
 function draw_clock(obj) {
  background(140, 82, 255); //border
  fill(74, 203, 174);
- noStroke();
+ noStroke()
  rect(20, 20, 920, 460, 10);
 
  let hr = obj.hours;
  let mn = obj.minutes;
  let sc = obj.seconds;
 
- let purple = color(134, 156, 255);
- let darkPurple = color(140, 82, 255);
+let purple = color(134, 156, 255);
+let darkPurple = color(140, 82, 255);
 
- let centerColor = color(140, 82, 255); 
- let petalColor = color(134, 156, 255); 
-
+let centerColor = color(140, 82, 255); 
+let petalColor = color(134, 156, 255); 
 
   // ":"flower 1
   push();
@@ -1259,6 +1258,7 @@ function draw_clock(obj) {
  draw_flower(color(165, 217, 250), color(5, 112, 255)); // Light blue petals, dark blue center
  pop();
 
+ 
   // push();
   fill(255);
   noStroke();
@@ -1267,8 +1267,41 @@ function draw_clock(obj) {
   text(hr, 190, 264.5)
   text(mn, 479.5, 264.5)
   text(sc, 769.5  , 264.5)
+   
+  let alarm_petal_color = fill(255, 86, 86);
+  let alarm_center_color = fill(255, 102, 196);
+
+  let alarmsetoffcolorP = fill(140, 82, 255);
+  let alarmsetoffcolorC = fill(134, 156, 255);
+
+  let alarm_colorP = fill(petalColor);
+  let alarm_colorC = fill(centerColor);
+
+ let alarm_message = ""
+ if(alarm < 0) {
+     alarm_colorP = fill(petalColor);
+     alarm_colorC = fill(centerColor);
+     alarm_message = "alarm: not set ✿ ◡ ✿"
+ }
+ else if(alarm == 0) {
+     alarm_colorP = alarm_petal_color
+     alarm_colorC = alarm_center_color
+     alarm_message = "alarm! (◍•ᴗ•◍)❤ "
+ }
+ else {
+     let seconds_remaining = int(alarm);
+     alarm_colorP = alarmsetoffcolorP
+     alarm_colorC = alarmsetoffcolorC
+     alarm_message = "alarm: will go off in " + seconds_remaining + " seconds ◉_◉" 
+ }
+ fill(255);
+  textSize(15);
+  textAlign(LEFT);
+  text(alarm_message, 20, height - 5);
+    
  }
 
+ 
  function draw_flower(petalColor, centerColor) {
  fill(petalColor);
  noStroke();
@@ -1281,41 +1314,6 @@ function draw_clock(obj) {
 
  fill(200, 100, 100)
 }
-
-let alarm_petal_color = color(255, 86, 86);
-let alarm_center_color = color(255, 102, 196);
-let alarmsetoffcolorP = color(140, 82, 255);
-let alarmsetoffcolorC = color(134, 156, 255);
-
-let alarm_colorP = centerColor;
-let alarm_colorC = petalColor;
-
-if(alarm < 0) {
-  alarm_colorP = centerColor;
-  alarm_colorC = petalColor;
-} 
-
-  else if (alarm == 0) {
-  alarm_colorP = alarm_petal_color;
-  alarm_colorC = alarm_center_color;
-} 
-  else {
-  let seconds_remaining = int(alarm);
-    alarm_colorP = alarmsetoffcolorP;
-    alarm_colorC = alarmsetoffcolorC;
-
-  }
-function draw_flower(petalColor, centerColor) {
- fill(petalColor);
- noStroke();
- for (let i = 0; i < 10; i++) {
-  ellipse(0, 50, 50, 150);
-  rotate(PI / 5);
- }
- fill(centerColor);
- ellipse(0, 0, 60, 60);
-
- fill(200, 100, 100)
-}
  
+
 
