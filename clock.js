@@ -19,26 +19,6 @@ function draw_clock(obj) {
  let centerColor = color(140, 82, 255); 
  let petalColor = color(134, 156, 255); 
 
- let alarm_petal_color = color(255, 86, 86);
- let alarm_center_color = color(255, 102, 196);
-
- let alarmsetoffcolorP = color(140, 82, 255);
- let alarmsetoffcolorC = color(134, 156, 255);
- let background(165, 217, 250) = color_background;
-
- let alarm_color = color()
-
- if(alarm < 0) {
-     alarm_color = centerColor, petalColor; 
- }
- else if(alarm == 0) {
-     alarm_color = alarm_petal_color, alarm_center_color, color_background;
- }
- else {
-     let seconds_remaining = int(alarm);
-     alarm_color = alarmsetoffcolorP, alarmsetoffcolorC, color_background + seconds_remaining
- }
-
 
   // ":"flower 1
   push();
@@ -1287,9 +1267,50 @@ function draw_clock(obj) {
   text(hr, 190, 264.5)
   text(mn, 479.5, 264.5)
   text(sc, 769.5  , 264.5)
-
  }
- 
+
+ function draw_flower(petalColor, centerColor) {
+ fill(petalColor);
+ noStroke();
+ for (let i = 0; i < 10; i++) {
+  ellipse(0, 50, 50, 150);
+  rotate(PI / 5);
+ }
+ fill(centerColor);
+ ellipse(0, 0, 60, 60);
+
+ fill(200, 100, 100)
+}
+
+let alarm_petal_color = color(255, 86, 86);
+let alarm_center_color = color(255, 102, 196);
+
+let alarmsetoffcolorP = color(140, 82, 255);
+let alarmsetoffcolorC = color(134, 156, 255);
+
+ let alarm_colorP = centerColor;
+ let alarm_colorC = petalColor;
+
+ if (alarm < 0) {
+   alarm_colorP = centerColor;
+   alarm_colorC = petalColor;
+
+ } else if (alarm == 0) {
+   alarm_colorP = alarm_petal_color;
+   alarm_colorC = alarm_center_color;
+
+ } else {
+   let seconds_remaining = alarm;
+   if (seconds_remaining > 0) {
+     alarm_colorP = alarmsetoffcolorP;
+     alarm_colorC = alarmsetoffcolorC;
+   } else {
+     let seconds_remaining = int(alarm);
+     alarm_colorP = centerColor;
+     alarm_colorC = petalColor;
+   }
+ }
+
  function draw_flower(petalColor, centerColor) {
  fill(petalColor);
  noStroke();
@@ -1303,4 +1324,3 @@ function draw_clock(obj) {
  fill(200, 100, 100)
 }
  
-
