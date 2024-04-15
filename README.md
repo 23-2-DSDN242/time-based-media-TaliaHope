@@ -19,3 +19,7 @@ I have completed the purple flowers as the background.
 After some thinking, I will try to make the purple background flowers the alarm feature by making them spin when the alarm goes off.
 
 I have uploaded part one of my sketch. 
+
+After meeting with Phoebe, I have decided to make the background flowers change colour when the alarm is set.
+
+I have also resetted the clock time to be centered on the flowers. 
