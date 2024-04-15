@@ -6,18 +6,40 @@ function setup() {
 function draw_clock(obj) {
  background(140, 82, 255); //border
  fill(74, 203, 174);
- noStroke()
+ noStroke();
  rect(20, 20, 920, 460, 10);
 
  let hr = obj.hours;
  let mn = obj.minutes;
  let sc = obj.seconds;
 
-let purple = color(134, 156, 255);
-let darkPurple = color(140, 82, 255);
+ let purple = color(134, 156, 255);
+ let darkPurple = color(140, 82, 255);
 
-let centerColor = "#fae"; 
-let petalColor = "#efa"; 
+ let centerColor = color(140, 82, 255); 
+ let petalColor = color(134, 156, 255); 
+
+ let alarm_petal_color = color(255, 86, 86);
+ let alarm_center_color = color(255, 102, 196);
+
+ let alarmsetoffcolorP = color(140, 82, 255);
+ let alarmsetoffcolorC = color(134, 156, 255);
+ let background(165, 217, 250) = color_background;
+
+ let alarm_color = color()
+
+ if(alarm < 0) {
+     alarm_color = centerColor, petalColor; 
+ }
+ else if(alarm == 0) {
+     alarm_color = alarm_petal_color, alarm_center_color, color_background;
+ }
+ else {
+     let seconds_remaining = int(alarm);
+     alarm_color = alarmsetoffcolorP, alarmsetoffcolorC, color_background + seconds_remaining
+ }
+
+
   // ":"flower 1
   push();
   translate(340, 295);
@@ -1260,26 +1282,13 @@ let petalColor = "#efa";
   // push();
   fill(255);
   noStroke();
-  textSize(220);
-  text(hr, 90, 320)
-  text(mn, 355, 320)
-  text(sc, 640, 320)
-   
- let alarm_message = ""
- if(alarm < 0) {
-     alarm_message = "Alarm: Not Set"
- }
- else if(alarm == 0) {
-     alarm_message = "Alarm!"
- }
- else {
-     let seconds_remaining = int(alarm);
-     alarm_message = "Alarm: will go off in " + seconds_remaining + " seconds"
- }
- text(alarm_message, 40, height-30);
+  textSize(45);
+  textAlign(CENTER)
+  text(hr, 190, 264.5)
+  text(mn, 479.5, 264.5)
+  text(sc, 769.5  , 264.5)
 
  }
-
  
  function draw_flower(petalColor, centerColor) {
  fill(petalColor);
@@ -1294,3 +1303,4 @@ let petalColor = "#efa";
  fill(200, 100, 100)
 }
  
+
