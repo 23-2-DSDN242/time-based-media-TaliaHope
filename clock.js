@@ -1299,7 +1299,9 @@ let alarmsetoffcolorC = color(134, 156, 255);
    alarm_colorP = alarm_petal_color;
    alarm_colorC = alarm_center_color;
 
- } else {
+ } 
+ 
+ else {
    let seconds_remaining = alarm;
    if (seconds_remaining > 0) {
      alarm_colorP = alarmsetoffcolorP;
@@ -1309,9 +1311,7 @@ let alarmsetoffcolorC = color(134, 156, 255);
      alarm_colorP = centerColor;
      alarm_colorC = petalColor;
    }
- }
-
- function draw_flower(petalColor, centerColor) {
+ }function draw_flower(petalColor, centerColor) {
  fill(petalColor);
  noStroke();
  for (let i = 0; i < 10; i++) {
@@ -1323,4 +1323,3 @@ let alarmsetoffcolorC = color(134, 156, 255);
 
  fill(200, 100, 100)
 }
- 
