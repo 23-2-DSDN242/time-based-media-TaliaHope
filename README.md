@@ -23,3 +23,5 @@ I have uploaded part one of my sketch.
 After meeting with Phoebe, I have decided to make the background flowers change colour when the alarm is set.
 
 I have also resetted the clock time to be centered on the flowers to make it easier to read.
+
+After tring to get the flowers to change colours when the alarm goes off for a few hours, I have decided to utilise words instead. 
